@@ -54,6 +54,10 @@ flutter:
     - assets/images/home.png
     - assets/images/back.png
     - assets/images/back3.png
+    - assets/images/header1.png
+    - assets/images/header2.png
+    - assets/images/header3.png
+    - assets/images/header4.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
