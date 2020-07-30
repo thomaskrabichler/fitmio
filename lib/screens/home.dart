@@ -1,8 +1,10 @@
-import 'package:fitmio/configs/hex_color.dart';
-import 'package:fitmio/screens/new_workout.dart';
-import 'package:fitmio/widgets/no_workout_created.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+import '../configs/hex_color.dart';
+import '../widgets/no_workout_created.dart';
+import '../screens/new_workout.dart';
+import '../widgets/header.dart';
+
 
 class Home extends StatefulWidget {
   @override
@@ -12,45 +14,44 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    var screenWidth = MediaQuery.of(context).size.width;
-    var screenHeight = MediaQuery.of(context).size.height;
-    var textSize = MediaQuery.of(context).size.height;
+    var heightMultiplier = MediaQuery.of(context).size.height / 100;
+    var widthMultiplier = MediaQuery.of(context).size.width / 100;
 
     return LayoutBuilder(builder: (context, constraints) {
       return OrientationBuilder(builder: (context, orientation) {
         return MaterialApp(
-          theme: new ThemeData(scaffoldBackgroundColor: Colors.white),
-          //  theme: AppTheme.darkTheme,
-
           home: DefaultTabController(
             length: 4,
             child: new Scaffold(
+              backgroundColor: Colors.white,
               body: TabBarView(
                 children: [
                   NoWorkout(),
-                  NewWorkout(),
+                  Header(),
                   NewWorkout(),
                   NewWorkout(),
                 ],
               ),
               bottomNavigationBar: Container(
-                height: screenHeight * 0.087,
+                height: 8.2 * heightMultiplier,
+                // color: Color.fromRGBO(248, 191, 247, 1),
                 child: new TabBar(
                   tabs: [
                     Container(
-                      margin: EdgeInsets.only(left: screenWidth * 0.024),
+                      margin: EdgeInsets.only(left: 2.42 * widthMultiplier),
                       alignment: Alignment.centerLeft,
                       child: Tab(
-                        icon: new Icon(Icons.home, size: 25),
+                        icon:
+                            new Icon(Icons.home, size: 3.11 * heightMultiplier),
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(right: 10),
+                      margin: EdgeInsets.only(right: 2.55 * widthMultiplier),
                       alignment: Alignment.centerLeft,
                       child: Tab(
                         icon: new Icon(
                           Icons.schedule,
-                          size: 25,
+                          size: 3.11 * heightMultiplier,
                         ),
                       ),
                     ),
@@ -59,17 +60,17 @@ class _HomeState extends State<Home> {
                       child: Tab(
                         icon: new Icon(
                           Icons.bubble_chart,
-                          size: 25,
+                          size: 3.11 * heightMultiplier,
                         ),
                       ),
                     ),
                     Container(
                       alignment: Alignment.centerRight,
-                      margin: EdgeInsets.only(right: 0.024 * screenWidth),
+                      margin: EdgeInsets.only(right: 2.4 * widthMultiplier),
                       child: Tab(
                         icon: new Icon(
                           Icons.person_outline,
-                          size: 25,
+                          size: 3.11 * heightMultiplier,
                         ),
                       ),
                     ),
@@ -81,12 +82,10 @@ class _HomeState extends State<Home> {
                   indicatorColor: Colors.transparent,
                 ),
               ),
-              backgroundColor: Colors.white,
               floatingActionButton: Container(
-                height: 0.088 * screenHeight,
-                width: 0.146 * screenWidth,
-                margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.85),
+                height: 8.8 * heightMultiplier,
+                width: 14.6 * widthMultiplier,
+                margin: EdgeInsets.only(top: 86.0 * heightMultiplier),
                 child: FloatingActionButton(
                   onPressed: () {},
                   elevation: 8,
