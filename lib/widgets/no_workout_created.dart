@@ -1,26 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../configs/size_config.dart';
 
 class NoWorkout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var screenWidth = MediaQuery.of(context).size.width;
+    var screenHeight = MediaQuery.of(context).size.height;
+    var textSize = MediaQuery.of(context).size.height;
+
+  
+
+  
+
     return Column(
-      children: [  
+      children: [
         Container(
-         // color: Colors.blue,
-          margin: EdgeInsets.only(top: 160, left: 45, right: 45),
+          margin: EdgeInsets.only(
+              top: screenHeight * 0.34,
+              left: screenWidth * 0.14,
+              right: screenWidth * 0.14),
           child: Image(
             image: AssetImage('assets/images/back3.png'),
           ),
         ),
         Container(
-          //color: Colors.orange,
-          margin: EdgeInsets.only(top: 30),
+          margin: EdgeInsets.only(top: screenHeight * 0.025),
           child: Text(
             'No workout created yet.',
             style: GoogleFonts.rubik(
               textStyle: TextStyle(
-                fontSize: 26,
+                fontSize: textSize * 0.033,
                 fontWeight: FontWeight.w500,
                 color: Color.fromRGBO(7, 4, 32, 1),
               ),
@@ -28,37 +38,17 @@ class NoWorkout extends StatelessWidget {
           ),
         ),
         Container(
-          //color:Colors.green,
-          margin: EdgeInsets.only(top: 20),
+          margin: EdgeInsets.only(top: screenHeight * 0.023),
           child: Text(
-            'click the big green button to get started.',
+            'click the big button below to get started.',
             style: GoogleFonts.rubik(
               textStyle: TextStyle(
-                fontSize: 16,
+                fontSize: textSize * 0.018,
                 color: Color.fromRGBO(7, 4, 32, 1),
               ),
             ),
           ),
         ),
-        // Container(
-        //  // color: Colors.red,
-        //   width: 260,
-        //   height: 60,
-        //   margin: EdgeInsets.only(top: 80),
-        //   child: RaisedButton(
-        //     onPressed: () {},
-        //     shape: RoundedRectangleBorder(
-        //       borderRadius: BorderRadius.circular(28.0),
-        //     ),
-        //     child: Text(
-        //       'New workout routine',
-        //       style: GoogleFonts.rubik(
-        //         textStyle: TextStyle(fontSize: 20, color: Colors.white),
-        //       ),
-        //     ),
-        //     color: Color.fromRGBO(10, 227, 180, 1),
-        //   ),
-        // ),
       ],
     );
   }
